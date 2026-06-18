@@ -1,0 +1,53 @@
+# --- Node / Frontend ---
+client/node_modules/
+client/dist/
+client/.env*.local
+client/*.log
+node_modules/
+dist/
+
+# --- Python / Backend ---
+# Virtual Environment
+.venv/
+venv/
+server/.venv/
+server/venv/
+ENV/
+env/
+
+# Python Cache & Compiled files
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+**/.pytest_cache/
+.ipynb_checkpoints/
+
+# Storage / Uploads
+server/storage/encrypted/*
+!server/storage/encrypted/.gitkeep
+server/storage/recovered/*
+!server/storage/recovered/.gitkeep
+server/storage/shares/*
+!server/storage/shares/.gitkeep
+server/storage/uploads/*
+!server/storage/uploads/.gitkeep
+
+# --- Environment Secrets ---
+**/.env
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+.env
+.env.local
+
+# --- IDE / OS Files ---
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.DS_Store
+Thumbs.db

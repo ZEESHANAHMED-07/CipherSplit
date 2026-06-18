@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background-color: #0a0c10;
+}
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+/* The shard motif: a card with one corner cut off, like a broken key fragment.
+   Used consistently for every share/shard card across both pages. */
+.shard-clip {
+  clip-path: polygon(0 0, 100% 0, 100% 82%, 82% 100%, 0 100%);
+}
+
+/* Staggered entrance when shares come back from /encrypt */
+@keyframes shard-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85) rotate(-3deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.shard-enter {
+  animation: shard-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Brief pulse when the share threshold is met on the reconstruct page */
+@keyframes lock-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(79, 209, 197, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 8px rgba(79, 209, 197, 0);
+  }
+}
+
+.lock-pulse {
+  animation: lock-pulse 0.6s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shard-enter,
+  .lock-pulse {
+    animation: none !important;
+  }
+}
+
+/* Visible keyboard focus, kept consistent everywhere */
+:focus-visible {
+  outline: 2px solid #4fd1c5;
+  outline-offset: 2px;
+}
+
+/* Thin scrollbar for the share-text textareas, dark themed */
+textarea::-webkit-scrollbar {
+  width: 6px;
+}
+textarea::-webkit-scrollbar-thumb {
+  background: #262b33;
+  border-radius: 3px;
+}
